@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+
+# Data (never commit real legal data)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/metadata/*
+!data/metadata/.gitkeep
+data/benchmark/*
+!data/benchmark/.gitkeep
+
+# Evaluation results (generated, not committed until finalized)
+evaluation/results/*
+!evaluation/results/.gitkeep
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Neo4j local data
+knowledge_graph/data/
+
+# Logs
+*.log

@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# Local development stack skeleton.
+# Kept minimal: backend API, frontend dev server, and Neo4j graph database.
+# Fill in build contexts / images as the corresponding pieces are implemented.
+# ---------------------------------------------------------------------------
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - neo4j
+    # command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+    # command: npm run dev -- --host
+
+  neo4j:
+    image: neo4j:5
+    ports:
+      - "7474:7474"   # browser UI
+      - "7687:7687"   # bolt
+    environment:
+      - NEO4J_AUTH=REPLACE_ME/REPLACE_ME
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  neo4j_data:

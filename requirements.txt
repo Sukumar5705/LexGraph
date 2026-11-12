@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# Backend / research dependencies.
+# Kept intentionally minimal for the skeleton stage — add only what a
+# module actually needs when you implement it.
+# ---------------------------------------------------------------------------
+
+# --- API framework ---
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+
+# --- Retrieval ---
+rank_bm25          # BM25 lexical retrieval
+numpy
+scikit-learn
+
+# --- Knowledge Graph ---
+neo4j
+
+# --- LLM / embeddings (choose provider SDK when implementing llm_service.py) ---
+# ollama
+
+# --- Data handling ---
+pandas
+
+# --- Testing ---
+pytest
+pytest-asyncio
+httpx
+
+# --- Notebooks (dev only) ---
+jupyter
